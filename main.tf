@@ -41,3 +41,9 @@ resource "google_compute_firewall" "wordpress_ingress" {
   source_ranges = ["0.0.0.0/0"]
 }
 
+resource "google_compute_instance_from_template" "vm_from_template" {
+  name     = "management"
+  zone     = "asia-south1-a"
+  source_instance_template = google_compute_instance_template.management_template.id
+}
+
